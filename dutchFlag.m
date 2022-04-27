@@ -1,12 +1,12 @@
 clear all
 RWB=[169,31,50;255,255,255;30,71,133];
 
-ret=[169,31,50];
-blau=[30,71,133];
+%ret=[169,31,50];
+%blau=[30,71,133];
 I =zeros(600,900,3);
 for j=1:3
 for i=1:3
-I(1+(j-1)*200:j*200,:,i)=I(1+(j-1)*200:j*200,:,i)+RWB(j,i);
+I(1+(j-1)*200:j*200,:,i)=I(1+(j-1)*200:j*200,:,i)+RWB(j,i); %Creating dutch flag
     
 end
 end
@@ -18,7 +18,7 @@ I2= zeros( size(I));
 l=1;
 for i=1:600
     for j=1:900
-        I2(i,j,:)=I(r2(1,l),r2(2,l),:);
+        I2(i,j,:)=I(r2(1,l),r2(2,l),:);%randomizing the flag
         l=l+1;
     end
 end
@@ -35,7 +35,7 @@ r=0;w=0;b=0;
   cout=0;
   r=0;
   dosyn=0;
-while i<601
+while i<601 %The sorting algorithm applied
     j=1;
     while j<901
         if cout==r
@@ -74,7 +74,7 @@ while i<601
     end
     i=i+1;
 end
-str="Dutch/"+"DutchList"+ int2str(dosyn)+".png";
+str="Dutch/"+"DutchList"+ int2str(dosyn)+".png";% saving pictures for creating the gif
 imwrite(uint8(I2),str);
 % subplot(1,3,3)
 % imshow(uint8(I2));
